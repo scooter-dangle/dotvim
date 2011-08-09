@@ -1,0 +1,171 @@
+To find what sorts of punctuation to precede single-letter abbreviations, use this search: /\(\S\&\W\)\+\k
+==Results of running ‘cat file.txt | tr -cs A-Za-z '\012'|tr A-Z a-z|sort| uniq -c| sort -n -r|head -250’ where ‘file.txt’ is a recent version of my journal==
+1	i
+2	the
+3	to
+4	and
+5	of
+6	it
+7	a
+8	that
+9	s
+10	in
+11	for
+12	so
+13	is
+14	t
+15	be
+16	my
+17	on
+18	was
+19	with
+20	m
+21	at
+22	but
+23	this
+24	have
+25	as
+26	he
+27	not
+28	about
+29	or
+30	me
+31	em
+32	like
+33	one
+34	some
+35	time
+36	they
+
+First, I'd like to....
+First, I'd like to....
+'First, I'd like to....
+(First, I'd 
+Look at this great 
+
+   2494 i
+   2156 the
+   1775 to
+   1513 and
+   1164 of
+   1025 it
+    952 a
+    844 that
+    655 s
+    645 in
+    493 for
+    471 so
+    467 is
+    428 t
+    420 be
+    405 my
+    383 on
+    377 was
+    371 with
+    349 m
+    329 at
+    324 but
+    316 this
+    315 have
+    298 as
+    294 he
+    292 not
+    281 about
+    269 or
+    268 me
+    258 em
+    239 like
+    232 one
+    228 some
+    226 time
+    206 they
+    202 if
+    201 things
+    200 we
+    198 there
+    191 which
+    186 now
+    184 up
+    179 really
+    177 how
+    177 are
+    174 out
+    169 think
+    169 all
+    167 more
+    165 had
+    164 would
+    164 do
+    163 his
+    162 what
+    157 here
+    156 from
+    153 don
+    147 you
+    147 being
+    144 just
+    144 can
+    142 when
+    138 something
+    136 ve
+    136 need
+    135 an
+    133 d
+    132 subject
+    130 much
+    127 might
+    123 going
+    121 them
+    118 get
+    117 footnote
+    116 writing
+    111 her
+    110 work
+    110 sc
+    110 go
+    109 also
+    108 back
+    107 should
+    106 good
+    106 been
+    105 people
+    104 she
+    103 well
+    100 than
+    100 him
+     99 those
+     99 could
+     94 were
+     94 ll
+     90 k
+     89 very
+     89 no
+     86 type
+     85 know
+     84 though
+     84 having
+     83 other
+     82 said
+     79 re
+     78 then
+     78 still
+     78 only
+     78 make
+     77 write
+     76 say
+     76 maybe
+     74 thing
+     74 their
+     74 even
+     74 by
+     74 after
+     73 ldots
+     72 two
+     71 while
+     71 any
+     70 way
+     69 since
+     69 first
+     67 off
+     67 new
+
