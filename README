@@ -1,6 +1,6 @@
 Installation:
 	
-	git clone ubuntu@107.20.241.129:~/.vim
+	git clone git://github.com/scooter_dangle/dotvim.git
 
 Create symlinks:
 	
