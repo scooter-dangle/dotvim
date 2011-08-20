@@ -15,6 +15,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-speeddating'
+Bundle 'scrooloose/nerdtree'
+Bundle 'nathanaelkane/vim-indent-guides'
 " vim-scripts repos
 Bundle 'vim-coffee-script'
 Bundle 'ruby-matchit'
@@ -152,5 +154,12 @@ if has("autocmd")
 		\   exe "normal! g`\"" |
 		\ endif
 endif
+" "
+
+" Not sure if I can get the following to work
+" nnoremap , <Leader> "
+
+" NERDTree mapping "
+nnoremap <Leader>n :NERDTree samp<CR>
 " "
 
