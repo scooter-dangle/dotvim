@@ -1,3 +1,37 @@
+set nocompatible
+filetype off " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+" 
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-speeddating'
+" vim-scripts repos
+Bundle 'vim-coffee-script'
+Bundle 'ruby-matchit'
+" Bundle 'ruby.vim'
+Bundle 'ftpluginruby.vim'
+Bundle 'repeat.vim'
+Bundle 'ctags.vim'
+Bundle 'AutoTag'
+Bundle 'snipMate'
+" Bundle ''
+" Bundle ''
+" non github repos
+" Bundle ''
+
+filetype plugin indent on " required!
+
+
 set incsearch
 set shortmess=nIat
 set rulerformat=%15(%c\ %l\ %p%%%)
@@ -46,6 +80,11 @@ filetype plugin indent on
     endif
 " "
 
+" Allow Ruby functions ending with ? or ! to be found as tags by Vim (ctags) "
+set iskeyword+=?
+set iskeyword+=!
+" "
+
 " Additional ruby auto-complete options
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
@@ -53,7 +92,7 @@ let g:rubycomplete_rails = 1
 " "
 
 " Allow '%' jump between if/class/etc blocks
-source ~/.vim/ruby-matchit.vim
+" source ~/.vim/ruby-matchit.vim
 " "
 
 " Window navigation shortcuts "
@@ -77,6 +116,8 @@ noremap k gk
 noremap j gj
 noremap <UP> <C-Y>
 noremap <DOWN> <C-E>
+
+cnoremap up cd ..
 
 map <F2> :e <UP><CR>
 map <F3> :e <UP><UP><CR>
