@@ -98,6 +98,23 @@ let g:rubycomplete_rails = 1
 " "
 
 " Window navigation shortcuts "
+noremap ,s s
+noremap ,v v
+noremap ,- -
+noremap ,= +
+noremap ,_ _
+noremap ,| |
+noremap ,+ =
+noremap ,j j
+noremap ,k k
+noremap ,l l
+noremap ,h h
+noremap ,w w
+noremap ,c c
+noremap ,o o
+" "
+
+" Window navigation shortcuts "
 noremap s s
 noremap v v
 noremap - -
@@ -156,8 +173,9 @@ if has("autocmd")
 endif
 " "
 
-" Not sure if I can get the following to work
-" nnoremap , <Leader> "
+" Not sure if I can get the following to work "
+" nnoremap , <Leader>
+" nnoremap ,p <CR>w
 
 " NERDTree mapping "
 nnoremap <Leader>n :NERDTree samp<CR>

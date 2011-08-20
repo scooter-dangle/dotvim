@@ -1,0 +1,11 @@
+* Allow it to toggle on and off
+** Should be able to toggle without affecting other mappings
+
+* Create brief tutorial
+
+* Change the command to create a new mapping (it's currently a double semi-colon, which I think will conflict with other plugins)
+
+* Set up so that default punctuation and mappings will be used unless modified versions exist
+** Where would these be put? In .vim or in the plugin file?
+
+* Email Michael Geddes to tell him about changes?
