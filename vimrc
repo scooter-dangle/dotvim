@@ -98,43 +98,45 @@ let g:rubycomplete_rails = 1
 " "
 
 " Window navigation shortcuts "
-noremap ,s s
-noremap ,v v
-noremap ,- -
-noremap ,= +
-noremap ,_ _
-noremap ,| |
-noremap ,+ =
-noremap ,j j
-noremap ,k k
-noremap ,l l
-noremap ,h h
-noremap ,w w
-noremap ,c c
-noremap ,o o
+nnoremap ,s s
+nnoremap ,v v
+nnoremap ,- -
+nnoremap ,= +
+nnoremap ,_ _
+nnoremap ,| |
+nnoremap ,+ =
+nnoremap ,j j
+nnoremap ,k k
+nnoremap ,l l
+nnoremap ,h h
+nnoremap ,w w
+nnoremap ,c c
+nnoremap ,o o
 " "
 
 " Window navigation shortcuts "
-noremap s s
-noremap v v
-noremap - -
-noremap = +
-noremap _ _
-noremap | |
-noremap + =
-noremap j j
-noremap k k
-noremap l l
-noremap h h
-noremap w w
-noremap c c
-noremap o o
+nnoremap s s
+nnoremap v v
+nnoremap - -
+nnoremap = +
+nnoremap _ _
+nnoremap | |
+nnoremap + =
+nnoremap j j
+nnoremap k k
+nnoremap l l
+nnoremap h h
+nnoremap w w
+nnoremap c c
+nnoremap o o
 " "
 
-noremap k gk
-noremap j gj
-noremap <UP> <C-Y>
-noremap <DOWN> <C-E>
+nnoremap k gk
+nnoremap j gj
+nnoremap <UP> <C-Y>
+nnoremap <DOWN> <C-E>
+nnoremap <C-K> <C-K>gk
+nnoremap <C-J> <C-J>gj
 
 cnoremap up cd ..
 
