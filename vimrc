@@ -135,8 +135,12 @@ nnoremap k gk
 nnoremap j gj
 nnoremap <UP> <C-Y>
 nnoremap <DOWN> <C-E>
-nnoremap <C-K> <C-K>gk
-nnoremap <C-J> <C-J>gj
+" For some reason these lines won't work  :(   "
+" nnoremap <C-S-K> <C-Y>
+" nnoremap <C-S-J> <C-E>
+" "
+nnoremap <C-K> <C-Y>k
+nnoremap <C-J> <C-E>j
 
 cnoremap up cd ..
 
