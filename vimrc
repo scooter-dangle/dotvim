@@ -20,7 +20,10 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " vim-scripts repos
 Bundle 'vim-coffee-script'
 Bundle 'ruby-matchit'
+Bundle 'Markdown'
+Bundle 'Textile-for-VIM'
 " Bundle 'ruby.vim'
+" Bundle 'repmo.vim' " This one gets rid of my j and k mappings :(
 Bundle 'bufexplorer.zip'
 Bundle 'yaifa.vim'
 Bundle 'ftpluginruby.vim'
