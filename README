@@ -10,5 +10,8 @@ Create symlinks:
 Switch to the `~/.vim` directory, and fetch submodules:
 	
 	cd ~/.vim
-	git submodule init
-	git submodule update
+	Install the vundle plugin manager.
+	In Vim, run
+		:BundleInstall
+	to install the rest of the plugins listed
+	in the vimrc file.
