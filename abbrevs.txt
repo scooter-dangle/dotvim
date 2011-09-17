@@ -39,11 +39,13 @@ vv was the
 ww with the
 zz but the
 
+abt about
 af after
 ag again
 agt against
 amt amount
 amts amts
+awy away
 ay any
 ayb anybody
 aym anymore
@@ -89,6 +91,7 @@ ls these
 lw they'll
 lz theirs
 mb maybe
+mgt might
 mt most
 nb nobody
 nk nnnkay
@@ -99,14 +102,17 @@ nwr nowhere
 pel people
 pt point
 pts points
+rl real
+rly really
 rt aren't
+shd should
 sm some
 smb somebody
 smtg something
 smw someone
 smwr somewhere
-shd should
 st isn't
+stl still
 tg thing
 tgs things
 ud you'd
@@ -127,6 +133,3 @@ wrt with respect to
 wthr whether
 yr year
 yrs years
-
-rl real
-rly really
