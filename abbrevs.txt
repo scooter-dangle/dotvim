@@ -132,3 +132,5 @@ rl real
 rly really
 
 wr were
+shdt shouldn't
+cdt couldn't
