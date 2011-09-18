@@ -102,22 +102,22 @@ let g:rubycomplete_rails = 1
 " source ~/.vim/ruby-matchit.vim
 " "
 
-let mapleader = ","
+let mapleader = ','
 " Window navigation shortcuts "
-nnoremap ,s s
-nnoremap ,v v
-nnoremap ,- -
-nnoremap ,= +
-nnoremap ,_ _
-nnoremap ,| |
-nnoremap ,+ =
-nnoremap ,j j
-nnoremap ,k k
-nnoremap ,l l
-nnoremap ,h h
-nnoremap ,w w
-nnoremap ,c c
-nnoremap ,o o
+nnoremap <Leader>s s
+nnoremap <Leader>v v
+nnoremap <Leader>- -
+nnoremap <Leader>= +
+nnoremap <Leader>_ _
+nnoremap <Leader>| |
+nnoremap <Leader>+ =
+nnoremap <Leader>j j
+nnoremap <Leader>k k
+nnoremap <Leader>l l
+nnoremap <Leader>h h
+nnoremap <Leader>w w
+nnoremap <Leader>c c
+nnoremap <Leader>o o
 " "
 
 " Window navigation shortcuts "
@@ -169,9 +169,20 @@ nnoremap <S-F7> :w<CR>:!texexec --lua "%"<CR>
 nnoremap <S-F9> :update<CR>:!ruby -rdebug "%"<CR>
 nnoremap <S-F11> :update<CR>:!ruby "%"<CR>
 nnoremap <S-F12> :update<CR>:!python "%"<CR>
+
+" C compilation mappings "
 nnoremap <Leader>1 :update<CR>:!gcc %:p -o %:p:r -lm -std=c99<CR>
 nnoremap <Leader>2 :update<CR>:!gcc %:p -o %:p:r -lm -std=c99 && ./%:t:r<CR>
 nnoremap <Leader>3 :!./%:t:r<CR>
+" "
+
+" CTAGS setup/mapping (for all programming languages... not just C) "
+" only needs to be run once per file if AutoTags plugin is installed "
+nnoremap <Leader>8 :let g:ctags_path='/usr/bin/ctags'<CR>
+nnoremap <Leader>9 :let g:ctags_args='-I __declspec+'<CR>
+nnoremap <Leader>0 :CTAGS<CR>
+" "
+
 
 nnoremap <S-C-F2> :cd ~/<CR>
 
