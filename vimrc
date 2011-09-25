@@ -183,6 +183,16 @@ nnoremap <Leader>9 :let g:ctags_args='-I __declspec+'<CR>
 nnoremap <Leader>0 :CTAGS<CR>
 " "
 
+" Recommended in help files for auto-complete "
+inoremap  
+inoremap  
+inoremap  
+inoremap  
+" "
+" A Ruby-specific helper (should eventually put in an ftplugin file "
+inoremap  <Space>=><Space>
+" "
+
 
 nnoremap <S-C-F2> :cd ~/<CR>
 
