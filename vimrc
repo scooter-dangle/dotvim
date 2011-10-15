@@ -185,7 +185,7 @@ nnoremap <Leader>0 :CTAGS<CR>
 
 " Execution of interpreted languages (with proper hash-bang markup) "
 nnoremap <Leader>E :w<CR>:!/chmod 744 %<CR>
-nnoremap <Leader>e :w<CR>:!/.%<CR>
+nnoremap <Leader>e :w<CR>:!./%<CR>
 
 " Recommended in help files for auto-complete "
 inoremap  
