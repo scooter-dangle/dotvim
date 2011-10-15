@@ -190,7 +190,8 @@ inoremap  
 inoremap  
 " "
 " A Ruby-specific helper (should eventually put in an ftplugin file "
-inoremap  <Space>=><Space>
+" Currently mapping this from backspace key :(
+"" inoremap  <Space>=><Space>
 " "
 
 
