@@ -183,6 +183,9 @@ nnoremap <Leader>9 :let g:ctags_args='-I __declspec+'<CR>
 nnoremap <Leader>0 :CTAGS<CR>
 " "
 
+" Execution of interpreted languages (with proper hash-bang markup) "
+nnoremap <Leader>e :w<CR>:!/.%<CR>
+
 " Recommended in help files for auto-complete "
 inoremap  
 inoremap  
