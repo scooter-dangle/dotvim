@@ -19,7 +19,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'nathanaelkane/vim-indent-guides'
 " vim-scripts repos
 Bundle 'vim-coffee-script'
-Bundle 'ruby-matchit'
 Bundle 'Markdown'
 Bundle 'Textile-for-VIM'
 " Bundle 'ruby.vim'
