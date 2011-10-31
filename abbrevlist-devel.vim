@@ -44,6 +44,9 @@ endif
 " have that key line/function in common.
 fun! s:AddAbbrevSimple(lhs, rhs)
   exe 'iabbrev '.a:lhs.' '.a:rhs
+"  The following 2 lines fix a problem but slow vim startup way too much.
+"  exe 'iabbrev '.a:lhs.'!'.' '.a:rhs.'!'
+"  exe 'iabbrev '.a:lhs.'?'.' '.a:rhs.'?'
 endfun
 "
 fun! s:AddAbbrev(lhs, rhs)
