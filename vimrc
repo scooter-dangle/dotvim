@@ -170,12 +170,6 @@ nnoremap <S-F9> :update<CR>:!ruby -rdebug "%"<CR>
 nnoremap <S-F11> :update<CR>:!ruby "%"<CR>
 nnoremap <S-F12> :update<CR>:!python "%"<CR>
 
-" C compilation mappings "
-nnoremap <Leader>1 :update<CR>:!gcc %:p -o %:p:r -lm -std=c99<CR>
-nnoremap <Leader>2 :update<CR>:!gcc %:p -o %:p:r -lm -std=c99 && ./%:t:r<CR>
-nnoremap <Leader>3 :!./%:t:r<CR>
-" "
-
 " CTAGS setup/mapping (for all programming languages... not just C) "
 " only needs to be run once per file if AutoTags plugin is installed "
 nnoremap <Leader>8 :let g:ctags_path='/usr/bin/ctags'<CR>
