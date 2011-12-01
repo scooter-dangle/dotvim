@@ -45,6 +45,8 @@ set autoindent
 set showcmd
 set linebreak
 set nrformats=hex,alpha
+set nu
+
 
 " Fewer warnings when switching changed buffers "
 set hidden
