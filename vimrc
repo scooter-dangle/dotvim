@@ -122,7 +122,7 @@ nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bp<CR>
 " "
 
-" Reset NERDTree mapping (which was originally <Leader>n)
+" NERDTree mapping
 nnoremap <Leader>N :NERDTree samp<CR>
 " "
 
@@ -195,12 +195,3 @@ if has("autocmd")
 		\ endif
 endif
 " "
-
-" Not sure if I can get the following to work "
-" nnoremap , <Leader>
-" nnoremap ,p <CR>w
-
-" NERDTree mapping "
-nnoremap <Leader>n :NERDTree samp<CR>
-" "
-
