@@ -99,10 +99,6 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 " "
 
-" Allow '%' jump between if/class/etc blocks
-" source ~/.vim/ruby-matchit.vim
-" "
-
 let mapleader = ','
 " Window navigation shortcuts "
 nnoremap <Leader>s s
@@ -121,21 +117,13 @@ nnoremap <Leader>c c
 nnoremap <Leader>o o
 " "
 
-" Window navigation shortcuts "
-nnoremap s s
-nnoremap v v
-nnoremap - -
-nnoremap = +
-nnoremap _ _
-nnoremap | |
-nnoremap + =
-nnoremap j j
-nnoremap k k
-nnoremap l l
-nnoremap h h
-nnoremap w w
-nnoremap c c
-nnoremap o o
+" Buffer navigation shortcuts "
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
+" "
+
+" Reset NERDTree mapping (which was originally <Leader>n)
+nnoremap <Leader>N :NERDTree samp<CR>
 " "
 
 nnoremap k gk
@@ -167,8 +155,6 @@ nnoremap <S-F5> :w<CR>:!texexec --xetex --purgeall "%"<CR>
 nnoremap <S-F6> :w<CR>:!texexec --pdf --purgeall "%"<CR>
 nnoremap <S-F7> :w<CR>:!texexec --lua "%"<CR>
 
-nnoremap <S-F9> :update<CR>:!ruby -rdebug "%"<CR>
-nnoremap <S-F11> :update<CR>:!ruby "%"<CR>
 nnoremap <S-F12> :update<CR>:!python "%"<CR>
 
 " CTAGS setup/mapping (for all programming languages... not just C) "
@@ -188,6 +174,7 @@ inoremap  
 inoremap  
 inoremap  
 " "
+
 " A Ruby-specific helper (should eventually put in an ftplugin file "
 " Currently mapping this from backspace key :(
 "" inoremap  <Space>=><Space>
