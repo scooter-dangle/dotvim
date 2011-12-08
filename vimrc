@@ -115,6 +115,8 @@ nnoremap <Leader>h h
 nnoremap <Leader>w w
 nnoremap <Leader>c c
 nnoremap <Leader>o o
+nnoremap <Leader>> >
+nnoremap <Leader>< <
 " "
 
 " Buffer navigation shortcuts "
