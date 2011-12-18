@@ -73,6 +73,13 @@ source ~/.vim/Q-lambda-extension.vim
 source ~/.vim/additionalMappings.vim
 " "
 
+" Test extending matchit for ruby "
+" source ~/.vim/ruby-matchit-2.vim
+" "
+
+" Test minimap "
+" source ~/.vim/1470884/.vimrc
+" "
 
 " Show highlighting groups for current word "
 source ~/.vim/syntaxHighlightInspect.vim
