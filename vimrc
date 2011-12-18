@@ -99,6 +99,9 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 " "
 
+" Set snipMate directory
+let g:snippets_dir = '~/.vim/snippets'
+
 let mapleader = ','
 " Window navigation shortcuts "
 nnoremap <Leader>s s
@@ -118,6 +121,8 @@ nnoremap <Leader>o o
 nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
+
+nnoremap <Leader><Leader> :w<CR>
 
 " Buffer navigation shortcuts "
 nnoremap <Leader>n :bn<CR>
