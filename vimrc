@@ -60,12 +60,12 @@ colorscheme desert256
 source ~/.vim/abbrevlist-devel.vim
 " "
 
-" Totally awesome extension of
-" the Q keystroke in input mode
-" to enable lambda-like function-
-" ality. Was kindly provided by
-" ZyX in the vim-use forum in
-" response to my posting."
+" Totally awesome extension of    "
+" the Q keystroke in input mode   "
+" to enable lambda-like function- "
+" ality. Was kindly provided by   "
+" ZyX in the vim-use forum in     "
+" response to my posting.         "
 source ~/.vim/Q-lambda-extension.vim
 " "
 
@@ -100,14 +100,21 @@ set iskeyword+=?
 set iskeyword+=!
 " "
 
-" Additional ruby auto-complete options
+" Additional ruby auto-complete options "
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 " "
 
-" Set snipMate directory
+" Set snipMate directory "
 let g:snippets_dir = '~/.vim/snippets'
+" "
+
+" Useful for when using snipMate and in general, I think. "
+" Are there some languages where I shouldn't use this?    "
+" (And don't just say pig-latin, you jerk.)               "
+set expandtab
+" "
 
 let mapleader = ','
 " Window navigation shortcuts "
@@ -129,17 +136,22 @@ nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
 
+" Save-so-Much! "
 nnoremap <Leader><Leader> :w<CR>
+" "
 
 " Buffer navigation shortcuts "
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bp<CR>
 " "
 
-" NERDTree mapping
+" NERDTree mapping "
 nnoremap <Leader>N :NERDTree samp<CR>
 " "
 
+" The first 2 of these are only useful when :set wrap is on. "
+" pretty lousy when navigating code. Might want to put them  "
+" in an ftplugin for txt or something.                       "
 nnoremap k gk
 nnoremap j gj
 nnoremap <UP> <C-Y>
@@ -151,27 +163,13 @@ nnoremap <DOWN> <C-E>
 nnoremap <C-K> <C-Y>k
 nnoremap <C-J> <C-E>j
 
-cnoremap up cd ..
-
-nnoremap <F2> :e <UP><CR>
-nnoremap <F3> :e <UP><UP><CR>
-nnoremap <F4> :e <UP><UP><UP><CR>
-nnoremap <F5> :e <UP><UP><UP><UP><CR>
-nnoremap <F6> :e <UP><UP><UP><UP><UP><CR>
-nnoremap <F7> :e <UP><UP><UP><UP><UP><UP><CR>
-nnoremap <F8> :e <UP><UP><UP><UP><UP><UP><UP><CR>
-nnoremap <F9> :e <UP><UP><UP><UP><UP><UP><UP><UP><CR>
-nnoremap <F10> :e <UP><UP><UP><UP><UP><UP><UP><UP><UP><CR>
-nnoremap <F11> :e <UP><UP><UP><UP><UP><UP><UP><UP><UP><UP><CR>
-nnoremap <F12> :update<CR>
-
 nnoremap <S-F5> :w<CR>:!texexec --xetex --purgeall "%"<CR>
 nnoremap <S-F6> :w<CR>:!texexec --pdf --purgeall "%"<CR>
 nnoremap <S-F7> :w<CR>:!texexec --lua "%"<CR>
 
 nnoremap <S-F12> :update<CR>:!python "%"<CR>
 
-" CTAGS setup/mapping (for all programming languages... not just C) "
+" CTAGS setup/mapping (for all programming languages... not just C)  "
 " only needs to be run once per file if AutoTags plugin is installed "
 nnoremap <Leader>8 :let g:ctags_path='/usr/bin/ctags'<CR>
 nnoremap <Leader>9 :let g:ctags_args='-I __declspec+'<CR>
@@ -188,12 +186,6 @@ inoremap  
 inoremap  
 inoremap  
 " "
-
-" A Ruby-specific helper (should eventually put in an ftplugin file "
-" Currently mapping this from backspace key :(
-"" inoremap  <Space>=><Space>
-" "
-
 
 nnoremap <S-C-F2> :cd ~/<CR>
 
