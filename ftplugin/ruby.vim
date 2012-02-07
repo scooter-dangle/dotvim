@@ -1,5 +1,6 @@
 set shiftwidth=4
 set nowrap
+set omnifunc=rubycomplete#Complete
 nnoremap <Leader>r :w<CR>:!ruby %<CR>
 nnoremap <Leader>T :w<CR>:!rspec --color %<CR>
 inoremap <C-J><C-J> <Space>=><Space>:
