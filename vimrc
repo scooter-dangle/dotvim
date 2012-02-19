@@ -135,6 +135,7 @@ nnoremap <Leader>o o
 nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
+nnoremap <Leader>bd sj:bdj
 
 " Save-so-Much! "
 nnoremap <Leader><Leader> :w<CR>
