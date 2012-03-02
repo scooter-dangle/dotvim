@@ -66,7 +66,7 @@ source ~/.vim/abbrevlist-devel.vim
 " ality. Was kindly provided by   "
 " ZyX in the vim-use forum in     "
 " response to my posting.         "
-source ~/.vim/Q-lambda-extension.vim
+" source ~/.vim/Q-lambda-extension.vim
 " "
 
 " Additional mappings "
