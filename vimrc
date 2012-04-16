@@ -21,8 +21,11 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-coffee-script'
 Bundle 'Markdown'
 Bundle 'Textile-for-VIM'
+" Bundle 'vimsh'
+" Bundle 'slimv.vim'
 " Bundle 'ruby.vim'
 " Bundle 'repmo.vim' " This one gets rid of my j and k mappings :(
+Bundle 'tslime.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'yaifa.vim'
 Bundle 'ftpluginruby.vim'
@@ -66,7 +69,7 @@ source ~/.vim/abbrevlist-devel.vim
 " ality. Was kindly provided by   "
 " ZyX in the vim-use forum in     "
 " response to my posting.         "
-source ~/.vim/Q-lambda-extension.vim
+" source ~/.vim/Q-lambda-extension.vim
 " "
 
 " Additional mappings "
@@ -135,6 +138,7 @@ nnoremap <Leader>o o
 nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
+nnoremap <Leader>bd sj:bdj
 
 " Save-so-Much! "
 nnoremap <Leader><Leader> :w<CR>
