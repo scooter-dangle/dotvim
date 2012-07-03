@@ -155,6 +155,7 @@ nnoremap <Leader><Leader> :w<CR>
 " Buffer navigation shortcuts "
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>b :BufExplorer<CR>
 " "
 
 " NERDTree mapping "
