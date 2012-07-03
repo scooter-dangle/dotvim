@@ -88,6 +88,14 @@ source ~/.vim/additionalMappings.vim
 source ~/.vim/syntaxHighlightInspect.vim
 " "
 
+" Some stuff from cupakromer's vimrc "
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vender/gems/*
+
+set list listchars=tab:\ \ ,trail:·
+" "
+
 " Language-specific auto-complete from syntax highlighting files "
 filetype plugin indent on
     if has("autocmd") && exists("+omnifunc")
@@ -191,7 +199,23 @@ inoremap  
 inoremap  
 " "
 
-nnoremap <S-C-F2> :cd ~/<CR>
+" start with relative line numbering and provide means "
+" of toggling between relative and absolute from "
+" jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/ "
+set relativenumber
+
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+
+au FocusLost * :set number<CR>
+au FocusGained * :set relativenumber<CR>
+nnoremap <Leader>a :call NumberToggle()<CR>
+" "
 
 " Command to restore cursor position "
 if has("autocmd")
