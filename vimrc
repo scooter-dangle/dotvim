@@ -1,44 +1,44 @@
-set nocompatible
-filetype off " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
+" set nocompatible
+" filetype off " required!
 " 
-" original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-speeddating'
-Bundle 'scrooloose/nerdtree'
-Bundle 'nathanaelkane/vim-indent-guides'
-" vim-scripts repos
-Bundle 'vim-coffee-script'
-Bundle 'Markdown'
-Bundle 'Textile-for-VIM'
-" Bundle 'vimsh'
-" Bundle 'slimv.vim'
-" Bundle 'ruby.vim'
-" Bundle 'repmo.vim' " This one gets rid of my j and k mappings :(
-Bundle 'tslime.vim'
-Bundle 'bufexplorer.zip'
-Bundle 'yaifa.vim'
-Bundle 'ftpluginruby.vim'
-Bundle 'repeat.vim'
-Bundle 'ctags.vim'
-Bundle 'AutoTag'
-Bundle 'snipMate'
-" Bundle ''
-" Bundle ''
-" non github repos
-" Bundle ''
-
-filetype plugin indent on " required!
+" set rtp+=~/.vim/bundle/vundle/
+" call vundle#rc()
+" 
+" " let Vundle manage Vundle
+" " required!
+" Bundle 'gmarik/vundle'
+" 
+" " My Bundles here:
+" " 
+" " original repos on github
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-endwise'
+" Bundle 'tpope/vim-speeddating'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'nathanaelkane/vim-indent-guides'
+" " vim-scripts repos
+" Bundle 'vim-coffee-script'
+" Bundle 'Markdown'
+" Bundle 'Textile-for-VIM'
+" " Bundle 'vimsh'
+" " Bundle 'slimv.vim'
+" " Bundle 'ruby.vim'
+" " Bundle 'repmo.vim' " This one gets rid of my j and k mappings :(
+" Bundle 'tslime.vim'
+" Bundle 'bufexplorer.zip'
+" Bundle 'yaifa.vim'
+" Bundle 'ftpluginruby.vim'
+" Bundle 'repeat.vim'
+" Bundle 'ctags.vim'
+" Bundle 'AutoTag'
+" Bundle 'snipMate'
+" " Bundle ''
+" " Bundle ''
+" " non github repos
+" " Bundle ''
+" 
+" filetype plugin indent on " required!
 
 
 set incsearch
@@ -200,10 +200,10 @@ inoremap  
 inoremap  
 " "
 
-" start with relative line numbering and provide means "
+" start with regular line numbering and provide means "
 " of toggling between relative and absolute from "
 " jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/ "
-set relativenumber
+set number
 
 function! NumberToggle()
     if(&relativenumber == 1)
