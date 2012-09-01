@@ -153,9 +153,9 @@ nnoremap <Leader><Leader> :w<CR>
 " "
 
 " Buffer navigation shortcuts "
-nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>p :bp<CR>
-nnoremap <Leader>b :BufExplorer<CR>
+nnoremap <Leader>n  :bn<CR>
+nnoremap <Leader>p  :bp<CR>
+nnoremap <Leader>be :BufExplorer<CR>
 " "
 
 " NERDTree mapping "
@@ -167,14 +167,10 @@ nnoremap <Leader>N :NERDTree samp<CR>
 " in an ftplugin for txt or something.                       "
 nnoremap k gk
 nnoremap j gj
-nnoremap <UP> <C-Y>
-nnoremap <DOWN> <C-E>
-" For some reason these lines won't work  :(   "
-" nnoremap <C-S-K> <C-Y>
-" nnoremap <C-S-J> <C-E>
-" "
-nnoremap <C-K> <C-Y>k
-nnoremap <C-J> <C-E>j
+nnoremap <C-K>  <C-Y>
+nnoremap <C-J>  <C-E>
+nnoremap <UP>   <C-Y>k
+nnoremap <DOWN> <C-E>j
 
 nnoremap <S-F5> :w<CR>:!texexec --xetex --purgeall "%"<CR>
 nnoremap <S-F6> :w<CR>:!texexec --pdf --purgeall "%"<CR>
