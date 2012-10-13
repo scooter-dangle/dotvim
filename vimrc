@@ -146,7 +146,6 @@ nnoremap <Leader>o o
 nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
-nnoremap <Leader>bd sj:bdj
 
 " Save-so-Much! "
 nnoremap <Leader><Leader> :w<CR>
@@ -156,6 +155,8 @@ nnoremap <Leader><Leader> :w<CR>
 nnoremap <Leader>n  :bn<CR>
 nnoremap <Leader>p  :bp<CR>
 nnoremap <Leader>be :BufExplorer<CR>
+" Get rid of the current buffer without closing the window "
+nnoremap <Leader>bd sj:bdj
 " "
 
 " NERDTree mapping "
@@ -212,6 +213,10 @@ endfunc
 au FocusLost * :set number<CR>
 au FocusGained * :set relativenumber<CR>
 nnoremap <Leader>a :call NumberToggle()<CR>
+" "
+
+" Toggle wrap "
+nnoremap <Leader>R :set wrap!<CR>
 " "
 
 " Command to restore cursor position "
