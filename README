@@ -10,7 +10,8 @@ Create symlinks:
 Switch to the `~/.vim` directory, and fetch submodules:
 	
 	cd ~/.vim
-	Install the vundle plugin manager.
+        Install the vundle plugin manager.
+                git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	In Vim, run
 		:BundleInstall
 	to install the rest of the plugins listed
