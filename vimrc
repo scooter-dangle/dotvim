@@ -33,8 +33,38 @@ Bundle 'repeat.vim'
 Bundle 'ctags.vim'
 Bundle 'AutoTag'
 Bundle 'snipMate'
-" Bundle ''
-" Bundle ''
+Bundle 'php.vim'
+Bundle 'phpcomplete.vim'
+Bundle 'Lisper.vim'
+" Colorscheme bundles "
+" Bundle 'burnttoast256'
+" Bundle 'desert-warm-256'
+" Bundle 'twilight256.vim'
+" Bundle 'devbox-dark-256'
+" Bundle '256-grayvim'
+" Bundle 'mrkn256.vim'
+" Bundle 'summerfruit256.vim'
+" Bundle 'charged-256.vim'
+Bundle 'wombat256.vim'
+" Bundle '256-jungle'
+" Bundle 'beauty256'
+" Bundle 'Railscasts-Theme-GUIand256color'
+" Bundle 'xoria256.vim'
+" Bundle 'colorful256.vim'
+" Bundle 'OceanBlack256'
+" Bundle 'calmar256-lightdark.vim'
+" Untested (downloaded on whim)
+" Bundle 'jsbeautify'
+" Bundle 'Superior-Haskell-Interaction-Mode-SHIM'
+" Bundle 'vim-erlang-skeleteons'
+" Bundle 'Erlang_detectVariable'
+" Bundle 'erlang-indent-file'
+" Bundle 'Erlang-plugin-package'
+" Bundle 'rubycomplete.vim'
+" Bundle 'coffee-check.vim'
+" Bundle 'coffee-check.vim-B'
+" Bundle 'vim-coffee-script'
+" Bundle 'coffee.vim'
 " non github repos
 " Bundle ''
 
@@ -50,13 +80,21 @@ set linebreak
 set nrformats=hex,alpha
 set nu
 
+" Set interactive shell commands (allows aliases) "
+" This also ends up making mappings that include shell
+" commands force vim to run as a background process
+" or something. Blerg.
+" set shellcmdflag=-ic
+" "
 
 " Fewer warnings when switching changed buffers "
 set hidden
 " "
 
 " Color scheme "
-colorscheme desert256
+" colorscheme desert256
+colorscheme wombat256mod
+" colorscheme twilight256
 " "
 
 " Shorthand system "
@@ -127,7 +165,7 @@ let g:snippets_dir = '~/.vim/snippets'
 set expandtab
 " "
 
-let mapleader = ','
+let mapleader = ' '
 " Window navigation shortcuts "
 nnoremap <Leader>s s
 nnoremap <Leader>v v
@@ -170,6 +208,8 @@ nnoremap k gk
 nnoremap j gj
 nnoremap <C-K>  <C-Y>
 nnoremap <C-J>  <C-E>
+nnoremap <C-H>  zh
+nnoremap <C-L>  zl
 nnoremap <UP>   <C-Y>k
 nnoremap <DOWN> <C-E>j
 
