@@ -142,3 +142,6 @@ lky likely
 agn again
 
 hg having
+btr better
+grt great
+ih I've

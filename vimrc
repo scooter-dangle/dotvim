@@ -17,9 +17,14 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-speeddating'
 Bundle 'scrooloose/nerdtree'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 't9md/vim-ruby-xmpfilter'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'guns/vim-clojure-static'
 " vim-scripts repos
+" Bundle 'rcodetools.vim'
 Bundle 'vim-coffee-script'
 Bundle 'Markdown'
+Bundle 'VimClojure'
 Bundle 'Textile-for-VIM'
 " Bundle 'vimsh'
 " Bundle 'slimv.vim'
@@ -185,6 +190,16 @@ nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
 
+" Tab navigation shortcuts "
+nnoremap <Leader>t gt
+nnoremap <Leader>T gT
+" "
+
+" Quick-toggle fold "
+" Might not keep this one... "
+nnoremap <Enter> za
+" "
+
 " Save-so-Much! "
 nnoremap <Leader><Leader> :w<CR>
 " "
@@ -237,6 +252,16 @@ inoremap  
 inoremap  
 " "
 
+" vim-ruby-xmpfilter marks "
+" Need to change to a better mapping and move to ruby.vim "
+" imap <buffer> <C-M> <Plug>(xmpfilter-mark)
+" imap <buffer> <C-O> <Plug>(xmpfilter-run)
+" xmap <buffer> <C-M> <Plug>(xmpfilter-mark)
+" xmap <buffer> <C-O> <Plug>(xmpfilter-run)
+" nmap <buffer> <C-M> <Plug>(xmpfilter-mark)
+" nmap <buffer> <C-O> <Plug>(xmpfilter-run)
+" "
+
 " start with regular line numbering and provide means "
 " of toggling between relative and absolute from "
 " jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/ "
@@ -255,8 +280,12 @@ au FocusGained * :set relativenumber<CR>
 nnoremap <Leader>a :call NumberToggle()<CR>
 " "
 
+" Set linebreaks when wrap is turned on "
+set linebreak
+set list
+set nowrap
 " Toggle wrap "
-nnoremap <Leader>R :set wrap!<CR>
+nnoremap <Leader>R :set wrap!<CR>:set list!<CR>
 " "
 
 " Command to restore cursor position "
