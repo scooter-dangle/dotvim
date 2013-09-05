@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 " " My Bundles here:
 
 " original repos on github
+Bundle 'Vim-Rspec'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
@@ -20,9 +21,15 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'guns/vim-clojure-static'
+Bundle 'slim-template/vim-slim'
 " vim-scripts repos
 " Bundle 'rcodetools.vim'
 Bundle 'vim-coffee-script'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'vim-stylus'
+Bundle 'Command-T'
+Bundle 'EasyMotion'
 Bundle 'Markdown'
 Bundle 'VimClojure'
 Bundle 'Textile-for-VIM'
@@ -30,6 +37,7 @@ Bundle 'Textile-for-VIM'
 " Bundle 'slimv.vim'
 " Bundle 'ruby.vim'
 " Bundle 'repmo.vim' " This one gets rid of my j and k mappings :(
+Bundle 'taglist.vim'
 Bundle 'tslime.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'yaifa.vim'
@@ -42,22 +50,22 @@ Bundle 'php.vim'
 Bundle 'phpcomplete.vim'
 Bundle 'Lisper.vim'
 " Colorscheme bundles "
-" Bundle 'burnttoast256'
-" Bundle 'desert-warm-256'
-" Bundle 'twilight256.vim'
-" Bundle 'devbox-dark-256'
-" Bundle '256-grayvim'
-" Bundle 'mrkn256.vim'
-" Bundle 'summerfruit256.vim'
-" Bundle 'charged-256.vim'
+Bundle 'burnttoast256'
+Bundle 'desert-warm-256'
+Bundle 'twilight256.vim'
+Bundle 'devbox-dark-256'
+Bundle '256-grayvim'
+Bundle 'mrkn256.vim'
+Bundle 'summerfruit256.vim'
+Bundle 'charged-256.vim'
 Bundle 'wombat256.vim'
-" Bundle '256-jungle'
-" Bundle 'beauty256'
-" Bundle 'Railscasts-Theme-GUIand256color'
-" Bundle 'xoria256.vim'
-" Bundle 'colorful256.vim'
-" Bundle 'OceanBlack256'
-" Bundle 'calmar256-lightdark.vim'
+Bundle '256-jungle'
+Bundle 'beauty256'
+Bundle 'Railscasts-Theme-GUIand256color'
+Bundle 'xoria256.vim'
+Bundle 'colorful256.vim'
+Bundle 'OceanBlack256'
+Bundle 'calmar256-lightdark.vim'
 " Untested (downloaded on whim)
 " Bundle 'jsbeautify'
 " Bundle 'Superior-Haskell-Interaction-Mode-SHIM'
@@ -98,8 +106,8 @@ set hidden
 
 " Color scheme "
 " colorscheme desert256
-colorscheme wombat256mod
-" colorscheme twilight256
+" colorscheme wombat256mod
+colorscheme twilight256
 " "
 
 " Shorthand system "
@@ -135,6 +143,7 @@ source ~/.vim/syntaxHighlightInspect.vim
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vender/gems/*
+set wildignorecase
 
 set list listchars=tab:\ \ ,trail:·
 " "
@@ -170,14 +179,20 @@ let g:snippets_dir = '~/.vim/snippets'
 set expandtab
 " "
 
+" EasyMotion "
+let g:EasyMotion_leader_key = '\'
+" "
+
 let mapleader = ' '
 " Window navigation shortcuts "
 nnoremap <Leader>s s
+nnoremap <Leader>- s
 nnoremap <Leader>v v
-nnoremap <Leader>- -
+nnoremap <Leader>| v
+" nnoremap <Leader>- -
 nnoremap <Leader>= +
 nnoremap <Leader>_ _
-nnoremap <Leader>| |
+" nnoremap <Leader>| |
 nnoremap <Leader>+ =
 nnoremap <Leader>j j
 nnoremap <Leader>k k
@@ -285,8 +300,19 @@ set linebreak
 set list
 set nowrap
 " Toggle wrap "
-nnoremap <Leader>R :set wrap!<CR>:set list!<CR>
+nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 " "
+
+if $SHELL =~ 'bin/fish'
+    set shell=/bin/sh
+endif
+
+" FuzzyFinder "
+nnoremap <Leader>ff :FufFile<CR>
+nnoremap <Leader>fb :FufBuffer<CR>
+nnoremap <Leader>fm :FufMruFile<CR>
+" "
+
 
 " Command to restore cursor position "
 if has("autocmd")
@@ -299,4 +325,8 @@ if has("autocmd")
 		\   exe "normal! g`\"" |
 		\ endif
 endif
+" "
+
+" Re-source .vimrc "
+nnoremap <Leader>SS :source ~/.vimrc<CR>
 " "

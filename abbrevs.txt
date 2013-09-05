@@ -145,3 +145,5 @@ hg having
 btr better
 grt great
 ih I've
+whr where
+mgmt management
