@@ -16,19 +16,23 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-bundler'
 Bundle 'scrooloose/nerdtree'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'guns/vim-clojure-static'
 Bundle 'slim-template/vim-slim'
+Bundle 'hwartig/vim-seeing-is-believing'
+Bundle 'wincent/Command-T'
+Bundle 'arsenerei/vim-ragel'
 " vim-scripts repos
 " Bundle 'rcodetools.vim'
 Bundle 'vim-coffee-script'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'vim-stylus'
-Bundle 'Command-T'
+" Bundle 'Command-T'
 Bundle 'EasyMotion'
 Bundle 'Markdown'
 Bundle 'VimClojure'
@@ -37,7 +41,12 @@ Bundle 'Textile-for-VIM'
 " Bundle 'slimv.vim'
 " Bundle 'ruby.vim'
 " Bundle 'repmo.vim' " This one gets rid of my j and k mappings :(
+if exists("bundle_project_dot_vim")
+    Bundle 'project.vim'
+endif
+Bundle 'rails.vim'
 Bundle 'taglist.vim'
+Bundle 'rake.vim'
 Bundle 'tslime.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'yaifa.vim'
@@ -83,6 +92,7 @@ Bundle 'calmar256-lightdark.vim'
 
 filetype plugin indent on " required!
 
+let mapleader = ' '
 
 set incsearch
 set shortmess=nIat
@@ -92,6 +102,7 @@ set showcmd
 set linebreak
 set nrformats=hex,alpha
 set nu
+syntax on
 
 " Set interactive shell commands (allows aliases) "
 " This also ends up making mappings that include shell
@@ -108,6 +119,7 @@ set hidden
 " colorscheme desert256
 " colorscheme wombat256mod
 colorscheme twilight256
+" colorscheme delek
 " "
 
 " Shorthand system "
@@ -231,6 +243,10 @@ nnoremap <Leader>bd sj:bdj
 nnoremap <Leader>N :NERDTree samp<CR>
 " "
 
+" Taglist mapping "
+nnoremap <Leader>tl :TlistToggle<CR>
+" "
+
 " The first 2 of these are only useful when :set wrap is on. "
 " pretty lousy when navigating code. Might want to put them  "
 " in an ftplugin for txt or something.                       "
@@ -263,7 +279,7 @@ nnoremap <Leader>e :w<CR>:!./%<CR>
 " Recommended in help files for auto-complete "
 inoremap  
 inoremap  
-inoremap  
+" inoremap  
 inoremap  
 " "
 

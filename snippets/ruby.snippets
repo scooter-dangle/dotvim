@@ -65,7 +65,7 @@ snippet cla class .. end
 	end
 snippet cla class .. initialize .. end
 	class ${1:`substitute(Filename(), '^.', '\u&', '')`}
-		def initialize(${2:args})
+		def initialize ${2:args}
 			${3}
 		end
 
@@ -73,7 +73,7 @@ snippet cla class .. initialize .. end
 	end
 snippet cla class .. < ParentClass .. initialize .. end
 	class ${1:`substitute(Filename(), '^.', '\u&', '')`} < ${2:ParentClass}
-		def initialize(${3:args})
+		def initialize ${3:args}
 			${4}
 		end
 
@@ -89,7 +89,7 @@ snippet cla ClassName = Struct .. do .. end
 	end
 snippet cla class BlankSlate .. initialize .. end
 	class ${1:BlankSlate}
-		instance_methods.each { |meth| undef_method(meth) unless meth =~ /\A__/ }
+		instance_methods.each { |meth| undef_method meth unless meth =~ /\A__/ }
 snippet cla class << self .. end
 	class << ${1:self}
 		${2}
@@ -97,8 +97,8 @@ snippet cla class << self .. end
 # class .. < DelegateClass .. initialize .. end
 snippet cla-
 	class ${1:`substitute(Filename(), '^.', '\u&', '')`} < DelegateClass(${2:ParentClass})
-		def initialize(${3:args})
-			super(${4:del_obj})
+		def initialize ${3:args}
+			super ${4:del_obj}
 
 			${5}
 		end
@@ -125,7 +125,7 @@ snippet mod module .. ClassMethods .. end
 
 		end
 
-		def self.included(receiver)
+		def self.included receiver
 			receiver.extend		 ClassMethods
 			receiver.send :include, InstanceMethods
 		end
@@ -143,7 +143,7 @@ snippet rw
 snippet Enum
 	include Enumerable
 
-	def each(&block)
+	def each &block
 		${1}
 	end
 # include Comparable
@@ -163,7 +163,7 @@ snippet defs
 	end
 # def method_missing
 snippet defmm
-	def method_missing(meth, *args, &blk)
+	def method_missing meth, *args, &blk
 		${1}
 	end
 snippet defd
@@ -199,7 +199,7 @@ snippet Dir Dir.global() { |file| .. }
 snippet Dir Dir[".."]
 	Dir[${1:'glob/**/*.rb'}]${2}
 snippet dir
-	Filename.dirname(__FILE__)
+	Filename.dirname __FILE__
 snippet deli
 	delete_if { |${1:e}| ${2} }
 snippet fil
@@ -313,7 +313,7 @@ snippet optp
 	options = {${1:default => 'args'}}
 
 	ARGV.options do |opts|
-		opts.banner = "Usage: #{File.basename($PROGRAM_NAME)}
+		opts.banner = "Usage: #{File.basename $PROGRAM_NAME}
 snippet opt
 	opts.on( '-${1:o}', '--${2:long-option-name}', ${3:String},
 			 '${4:Option description.}') do |${5:opt}|
@@ -390,17 +390,17 @@ snippet Ml
 	File.open(${1:'path/to/file.dump'}, 'rb') { |${2:file}| Marshal.load($2) }${3}
 # deep_copy(..)
 snippet deec
-	Marshal.load(Marshal.dump(${1:obj_to_copy}))${2}
+	Marshal.load(Marshal.dump ${1:obj_to_copy})${2}
 snippet Pn-
 	PStore.new(${1:'file_name.pstore'})${2}
 snippet tra
 	transaction(${1:true}) { ${2} }
 # xmlread(..)
 snippet xml-
-	REXML::Document.new(File.read(${1:'path/to/file'}))${2}
+	REXML::Document.new(File.read ${1:'path/to/file'})${2}
 # xpath(..) { .. }
 snippet xpa
-	elements.each(${1:'//Xpath'}) do |${2:node}|
+	elements.each ${1:'//Xpath'} do |${2:node}|
 		${3}
 	end
 # class_from_name()
