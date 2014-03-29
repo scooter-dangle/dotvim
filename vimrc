@@ -26,8 +26,11 @@ Bundle 'slim-template/vim-slim'
 Bundle 'hwartig/vim-seeing-is-believing'
 Bundle 'wincent/Command-T'
 Bundle 'arsenerei/vim-ragel'
+" LiveScript "
+Bundle 'gkz/vim-ls'
 " vim-scripts repos
 " Bundle 'rcodetools.vim'
+Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'vim-coffee-script'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -37,6 +40,12 @@ Bundle 'EasyMotion'
 Bundle 'Markdown'
 Bundle 'VimClojure'
 Bundle 'Textile-for-VIM'
+Bundle 'Mercury-compiler-support'
+Bundle 'go.vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
 " Bundle 'vimsh'
 " Bundle 'slimv.vim'
 " Bundle 'ruby.vim'
@@ -58,6 +67,7 @@ Bundle 'snipMate'
 Bundle 'php.vim'
 Bundle 'phpcomplete.vim'
 Bundle 'Lisper.vim'
+Bundle 'mercury.vim'
 " Colorscheme bundles "
 Bundle 'burnttoast256'
 Bundle 'desert-warm-256'
@@ -277,7 +287,8 @@ nnoremap <Leader>E :w<CR>:!chmod 744 %<CR>
 nnoremap <Leader>e :w<CR>:!./%<CR>
 
 " Recommended in help files for auto-complete "
-inoremap  
+" This first one screws up the escape key
+" inoremap  
 inoremap  
 " inoremap  
 inoremap  
