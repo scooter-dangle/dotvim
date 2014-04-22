@@ -161,6 +161,12 @@ source ~/.vim/additionalMappings.vim
 source ~/.vim/syntaxHighlightInspect.vim
 " "
 
+" syntastic options "
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['ruby', 'php', 'go', 'clojure', 'erlang'],
+                           \ 'passive_filetypes': ['puppet'] }
+
+
 " Some stuff from cupakromer's vimrc "
 set wildmenu
 set wildmode=list:longest,list:full
