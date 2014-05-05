@@ -396,3 +396,8 @@ nnoremap <Leader>SS :source ~/.vimrc<CR>
 " Ultisnips split window "
 " let g:UltiSnipsEditSplit="vertical"
 
+" For vim-flavored-markdown plugin "
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
