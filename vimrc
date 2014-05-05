@@ -12,11 +12,14 @@ Plugin 'gmarik/Vundle.vim'
 
 " original repos on github
 Plugin 'Vim-Rspec'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-commentary'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -48,7 +51,12 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'Blackrush/vim-gocode'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
-Plugin 'SirVer/ultisnips'
+
+" Snippet engine "
+" Plugin 'SirVer/ultisnips'
+" snippets for ultisnips engine "
+" Plugin 'honza/vim-snippets'
+
 " Plugin 'vimsh'
 " Plugin 'slimv.vim'
 " Plugin 'ruby.vim'
@@ -66,7 +74,14 @@ Plugin 'ftpluginruby.vim'
 Plugin 'repeat.vim'
 Plugin 'ctags.vim'
 Plugin 'AutoTag'
-Plugin 'snipMate'
+
+" snipmate (and dependences) "
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" optional for snipMate
+Plugin 'honza/vim-snippets'
+
 Plugin 'php.vim'
 Plugin 'phpcomplete.vim'
 Plugin 'Lisper.vim'
@@ -368,3 +383,12 @@ endif
 " Re-source .vimrc "
 nnoremap <Leader>SS :source ~/.vimrc<CR>
 " "
+
+" Ultisnips "
+" warning...be careful of interactions with other plugins "
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Ultisnips split window "
+" let g:UltiSnipsEditSplit="vertical"
+
