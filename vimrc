@@ -24,6 +24,10 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
 
+Plugin 'tpope/vim-markdown'
+" Addon to tpope/vim-markdown "
+Plugin 'jtratner/vim-flavored-markdown'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -46,7 +50,7 @@ Plugin 'FuzzyFinder'
 Plugin 'vim-stylus'
 " Plugin 'Command-T'
 Plugin 'EasyMotion'
-Plugin 'Markdown'
+" Plugin 'Markdown' "
 Plugin 'VimClojure'
 Plugin 'Textile-for-VIM'
 Plugin 'Mercury-compiler-support'
