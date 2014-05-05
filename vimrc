@@ -28,6 +28,8 @@ Bundle 'wincent/Command-T'
 Bundle 'arsenerei/vim-ragel'
 " LiveScript "
 Bundle 'gkz/vim-ls'
+" Fish! "
+Bundle 'dag/vim-fish'
 " vim-scripts repos
 " Bundle 'rcodetools.vim'
 Bundle 'Puppet-Syntax-Highlighting'
