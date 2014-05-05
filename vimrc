@@ -1,3 +1,7 @@
+if &shell =~# 'fish$'
+    set shell=/bin/sh
+endif
+
 set nocompatible
 filetype off " required!
 
@@ -355,10 +359,6 @@ set nowrap
 " Toggle wrap "
 nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 " "
-
-if $SHELL =~ 'bin/fish'
-    set shell=/bin/sh
-endif
 
 " FuzzyFinder "
 nnoremap <Leader>ff :FufFile<CR>
