@@ -23,6 +23,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-vividchalk'
 
 Plugin 'tpope/vim-markdown'
 " Addon to tpope/vim-markdown "
@@ -41,6 +42,8 @@ Plugin 'arsenerei/vim-ragel'
 Plugin 'gkz/vim-ls'
 " Fish! "
 Plugin 'dag/vim-fish'
+Plugin 'kana/vim-vspec'
+
 " vim-scripts repos
 " Plugin 'rcodetools.vim'
 Plugin 'Puppet-Syntax-Highlighting'
