@@ -38,6 +38,8 @@ Plugin 'slim-template/vim-slim'
 Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'wincent/Command-T'
 Plugin 'arsenerei/vim-ragel'
+Plugin 'leafo/moonscript-vim'
+Plugin 'Valloric/YouCompleteMe'
 " LiveScript "
 Plugin 'gkz/vim-ls'
 " Fish! "
