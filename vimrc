@@ -39,7 +39,7 @@ Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'wincent/Command-T'
 Plugin 'arsenerei/vim-ragel'
 Plugin 'leafo/moonscript-vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " LiveScript "
 Plugin 'gkz/vim-ls'
 " Fish! "
@@ -77,6 +77,8 @@ Plugin 'majutsushi/tagbar'
 if exists("bundle_project_dot_vim")
     Bundle 'project.vim'
 endif
+Plugin 'Coq-indent'
+Plugin 'coq-syntax'
 Plugin 'rails.vim'
 Plugin 'taglist.vim'
 Plugin 'rake.vim'
