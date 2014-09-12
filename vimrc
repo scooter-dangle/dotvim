@@ -377,6 +377,7 @@ nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 nnoremap <Leader>gg :Gstatus<CR>
 nnoremap <Leader>gh :Gbrowse<CR>
 vnoremap <Leader>gb :Gblame<CR>
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " "
 
 " FuzzyFinder "
