@@ -51,7 +51,9 @@ Plugin 'kana/vim-vspec'
 Plugin 'Puppet-Syntax-Highlighting'
 Plugin 'vim-coffee-script'
 Plugin 'L9'
-Plugin 'FuzzyFinder'
+" Am liking ctrlp such much better than FuzzyFinder
+" Plugin 'FuzzyFinder'
+Plugin 'kien/ctrlp.vim'
 Plugin 'vim-stylus'
 " Plugin 'Command-T'
 Plugin 'EasyMotion'
@@ -75,7 +77,7 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'ruby.vim'
 " Plugin 'repmo.vim' " This one gets rid of my j and k mappings :(
 if exists("bundle_project_dot_vim")
-    Bundle 'project.vim'
+    Plugin 'project.vim'
 endif
 Plugin 'Coq-indent'
 Plugin 'coq-syntax'
@@ -206,7 +208,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vender/gems/*
-set wildignorecase
+" set wildignorecase
 
 set list listchars=tab:\ \ ,trail:·
 " "
@@ -275,7 +277,7 @@ nnoremap <Leader>T gT
 
 " Quick-toggle fold "
 " Might not keep this one... "
-nnoremap <Enter> za
+nnoremap <Leader><Enter> za
 " "
 
 " Save-so-Much! "
@@ -371,10 +373,16 @@ set nowrap
 nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 " "
 
+" Fugitive "
+nnoremap <Leader>gg :Gstatus<CR>
+nnoremap <Leader>gh :Gbrowse<CR>
+vnoremap <Leader>gb :Gblame<CR>
+" "
+
 " FuzzyFinder "
-nnoremap <Leader>ff :FufFile<CR>
-nnoremap <Leader>fb :FufBuffer<CR>
-nnoremap <Leader>fm :FufMruFile<CR>
+" nnoremap <Leader>ff :FufFile<CR>
+" nnoremap <Leader>fb :FufBuffer<CR>
+" nnoremap <Leader>fm :FufMruFile<CR>
 " "
 
 
