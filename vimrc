@@ -39,12 +39,15 @@ Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'wincent/Command-T'
 Plugin 'arsenerei/vim-ragel'
 Plugin 'leafo/moonscript-vim'
+Plugin 'bling/vim-airline'
 " Plugin 'Valloric/YouCompleteMe'
 " LiveScript "
 Plugin 'gkz/vim-ls'
 " Fish! "
 Plugin 'dag/vim-fish'
 Plugin 'kana/vim-vspec'
+
+Plugin 'typedclojure/vim-typedclojure'
 
 " vim-scripts repos
 " Plugin 'rcodetools.vim'
@@ -127,10 +130,9 @@ Plugin 'calmar256-lightdark.vim'
 " Plugin 'erlang-indent-file'
 " Plugin 'Erlang-plugin-package'
 " Plugin 'rubycomplete.vim'
-" Plugin 'coffee-check.vim'
+Plugin 'coffee-check.vim'
 " Plugin 'coffee-check.vim-B'
-" Plugin 'vim-coffee-script'
-" Plugin 'coffee.vim'
+Plugin 'coffee.vim'
 " non github repos
 " Plugin ''
 
@@ -361,6 +363,11 @@ endfunc
 au FocusLost * :set number<CR>
 au FocusGained * :set relativenumber<CR>
 nnoremap <Leader>a :call NumberToggle()<CR>
+" "
+
+" Skinny indent guides "
+" Plugin 'nathanaelkane/vim-indent-guides' "
+let g:indent_guides_guide_size=1
 " "
 
 " Set linebreaks when wrap is turned on "
