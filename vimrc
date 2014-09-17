@@ -78,6 +78,7 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'vimsh'
 " Plugin 'slimv.vim'
 " Plugin 'ruby.vim'
+Plugin 'danchoi/ri.vim'
 " Plugin 'repmo.vim' " This one gets rid of my j and k mappings :(
 if exists("bundle_project_dot_vim")
     Plugin 'project.vim'
