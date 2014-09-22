@@ -29,6 +29,8 @@ Plugin 'tpope/vim-markdown'
 " Addon to tpope/vim-markdown "
 Plugin 'jtratner/vim-flavored-markdown'
 
+Plugin 'tommcdo/vim-exchange'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -70,11 +72,6 @@ Plugin 'Blackrush/vim-gocode'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 
-" Snippet engine "
-" Plugin 'SirVer/ultisnips'
-" snippets for ultisnips engine "
-" Plugin 'honza/vim-snippets'
-
 " Plugin 'vimsh'
 " Plugin 'slimv.vim'
 " Plugin 'ruby.vim'
@@ -96,10 +93,15 @@ Plugin 'repeat.vim'
 Plugin 'ctags.vim'
 Plugin 'AutoTag'
 
+" Snippet engine "
+Plugin 'SirVer/ultisnips'
+" snippets for ultisnips engine "
+" Plugin 'honza/vim-snippets'
+
 " snipmate (and dependences) "
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'garbas/vim-snipmate'
 " optional for snipMate
 Plugin 'honza/vim-snippets'
 
@@ -384,11 +386,13 @@ nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 " Fugitive "
 nnoremap <Leader>gg :Gstatus<CR>
 nnoremap <Leader>gh :Gbrowse<CR>
+vnoremap <Leader>gh :Gbrowse<CR>
 vnoremap <Leader>gb :Gblame<CR>
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " "
 
 " FuzzyFinder "
+" since replaced by ctrlp "
 " nnoremap <Leader>ff :FufFile<CR>
 " nnoremap <Leader>fb :FufBuffer<CR>
 " nnoremap <Leader>fm :FufMruFile<CR>
