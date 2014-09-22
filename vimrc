@@ -305,6 +305,7 @@ nnoremap <Leader>N :NERDTreeToggle<CR>
 
 " Taglist mapping "
 nnoremap <Leader>tl :TlistToggle<CR>
+let Tlist_Use_Right_Window=1
 " "
 
 " The first 2 of these are only useful when :set wrap is on. "
