@@ -81,7 +81,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'danchoi/ri.vim'
 " Plugin 'repmo.vim' " This one gets rid of my j and k mappings :(
 if exists("bundle_project_dot_vim")
-    Plugin 'project.vim'
+    " This plugin is for C projects...not general use.
+    " Plugin 'project.vim'
 endif
 Plugin 'Coq-indent'
 Plugin 'coq-syntax'
@@ -218,15 +219,16 @@ set list listchars=tab:\ \ ,trail:·
 
 " Language-specific auto-complete from syntax highlighting files "
 filetype plugin indent on
-    if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype *
-		    \	if &omnifunc == "" |
-		    \		setlocal omnifunc=syntaxcomplete#Complete |
-		    \	endif
-    endif
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+                \	if &omnifunc == "" |
+                \		setlocal omnifunc=syntaxcomplete#Complete |
+                \	endif
+endif
 " "
 
 " Allow Ruby functions ending with ? or ! to be found as tags by Vim (ctags) "
+" Move to ftplugin/ruby.vim "
 set iskeyword+=?
 set iskeyword+=!
 " "
@@ -296,7 +298,7 @@ nnoremap <Leader>bd sj:bdj
 " "
 
 " NERDTree mapping "
-nnoremap <Leader>N :NERDTree samp<CR>
+nnoremap <Leader>N :NERDTreeToggle<CR>
 " "
 
 " Taglist mapping "
@@ -315,11 +317,11 @@ nnoremap <C-L>  zl
 nnoremap <UP>   <C-Y>k
 nnoremap <DOWN> <C-E>j
 
-nnoremap <S-F5> :w<CR>:!texexec --xetex --purgeall "%"<CR>
-nnoremap <S-F6> :w<CR>:!texexec --pdf --purgeall "%"<CR>
-nnoremap <S-F7> :w<CR>:!texexec --lua "%"<CR>
+" nnoremap <S-F5> :w<CR>:!texexec --xetex --purgeall "%"<CR>
+" nnoremap <S-F6> :w<CR>:!texexec --pdf --purgeall "%"<CR>
+" nnoremap <S-F7> :w<CR>:!texexec --lua "%"<CR>
 
-nnoremap <S-F12> :update<CR>:!python "%"<CR>
+" nnoremap <S-F12> :update<CR>:!python "%"<CR>
 
 " CTAGS setup/mapping (for all programming languages... not just C)  "
 " only needs to be run once per file if AutoTags plugin is installed "
@@ -384,6 +386,7 @@ nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 " Fugitive "
 nnoremap <Leader>gg :Gstatus<CR>
 nnoremap <Leader>gh :Gbrowse<CR>
+vnoremap <Leader>gh :Gbrowse<CR>
 vnoremap <Leader>gb :Gblame<CR>
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " "
@@ -410,6 +413,11 @@ endif
 
 " Re-source .vimrc "
 nnoremap <Leader>SS :source ~/.vimrc<CR>
+" "
+
+" For vim-commentary "
+autocmd FileType ruby set commentstring=#\ %s
+" autocmd FileType vim  set commentstring=\"\ %s\ \" "
 " "
 
 " Ultisnips "
