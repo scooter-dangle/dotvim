@@ -88,6 +88,7 @@ Plugin 'taglist.vim'
 Plugin 'rake.vim'
 Plugin 'tslime.vim'
 Plugin 'bufexplorer.zip'
+Plugin 'BufOnly.vim'
 Plugin 'yaifa.vim'
 Plugin 'ftpluginruby.vim'
 Plugin 'repeat.vim'
@@ -295,7 +296,9 @@ nnoremap <Leader><Leader> :w<CR>
 nnoremap <Leader>n  :bn<CR>
 nnoremap <Leader>p  :bp<CR>
 nnoremap <Leader>be :BufExplorer<CR>
+nnoremap <Leader>bo :BufOnly<CR>
 " Get rid of the current buffer without closing the window "
+" (Dersn't work s'well) "
 nnoremap <Leader>bd sj:bdj
 " "
 
