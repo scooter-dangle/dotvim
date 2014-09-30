@@ -403,6 +403,11 @@ vnoremap <Leader>gb :Gblame<CR>
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " "
 
+" ag.vim "
+nnoremap <Leader>f<Leader> :Ag 
+nnoremap <Leader>fk :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+" "
+
 " FuzzyFinder "
 " since replaced by ctrlp "
 " nnoremap <Leader>ff :FufFile<CR>
