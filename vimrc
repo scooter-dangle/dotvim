@@ -106,6 +106,7 @@ Plugin 'tomtom/tlib_vim'
 " Plugin 'garbas/vim-snipmate'
 " optional for snipMate
 Plugin 'honza/vim-snippets'
+Plugin 'dbext.vim'
 
 Plugin 'php.vim'
 Plugin 'phpcomplete.vim'
@@ -142,6 +143,8 @@ Plugin 'coffee-check.vim'
 Plugin 'coffee.vim'
 " non github repos
 " Plugin ''
+
+Plugin 'rking/ag.vim'
 
 call vundle#end()         " required
 filetype plugin indent on " required!
@@ -388,6 +391,9 @@ set nowrap
 " Toggle wrap "
 nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 " "
+
+" Mac Copy "
+vnoremap <Leader>y :w !pbcopy<CR>
 
 " Fugitive "
 nnoremap <Leader>gg :Gstatus<CR>
