@@ -152,6 +152,8 @@ filetype plugin indent on " required!
 let mapleader = ' '
 
 set incsearch
+set hlsearch
+nnoremap <Leader>/ :noh<CR>
 set shortmess=nIat
 set rulerformat=%15(%c\ %l\ %p%%%)
 set autoindent
@@ -261,9 +263,7 @@ let g:EasyMotion_leader_key = '\'
 
 let mapleader = ' '
 " Window navigation shortcuts "
-nnoremap <Leader>s s
 nnoremap <Leader>- s
-nnoremap <Leader>v v
 nnoremap <Leader>| v
 " nnoremap <Leader>- -
 nnoremap <Leader>= +
@@ -274,7 +274,7 @@ nnoremap <Leader>j j
 nnoremap <Leader>k k
 nnoremap <Leader>l l
 nnoremap <Leader>h h
-nnoremap <Leader>w w
+" nnoremap <Leader>w w
 nnoremap <Leader>c c
 nnoremap <Leader>o o
 nnoremap <Leader>> >
@@ -334,14 +334,14 @@ nnoremap <DOWN> <C-E>j
 
 " CTAGS setup/mapping (for all programming languages... not just C)  "
 " only needs to be run once per file if AutoTags plugin is installed "
-nnoremap <Leader>8 :let g:ctags_path='/usr/bin/ctags'<CR>
-nnoremap <Leader>9 :let g:ctags_args='-I __declspec+'<CR>
-nnoremap <Leader>0 :CTAGS<CR>
+" nnoremap <Leader>8 :let g:ctags_path='/usr/bin/ctags'<CR>
+" nnoremap <Leader>9 :let g:ctags_args='-I __declspec+'<CR>
+" nnoremap <Leader>0 :CTAGS<CR>
 " "
 
 " Execution of interpreted languages (with proper hash-bang markup) "
-nnoremap <Leader>E :w<CR>:!chmod 744 %<CR>
-nnoremap <Leader>e :w<CR>:!./%<CR>
+" nnoremap <Leader>E :w<CR>:!chmod 744 %<CR>
+" nnoremap <Leader>e :w<CR>:!./%<CR>
 
 " Recommended in help files for auto-complete "
 " This first one screws up the escape key
@@ -363,6 +363,7 @@ inoremap  
 
 " start with regular line numbering and provide means "
 " of toggling between relative and absolute from "
+" TODO improve...currently is initially disabled
 " jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/ "
 set number
 
@@ -398,14 +399,41 @@ vnoremap <Leader>y :w !pbcopy<CR>
 " Fugitive "
 nnoremap <Leader>gg :Gstatus<CR>
 nnoremap <Leader>gh :Gbrowse<CR>
+nnoremap <Leader>gH :Gbrowse!<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gl :Glog<CR>
 vnoremap <Leader>gh :Gbrowse<CR>
+vnoremap <Leader>gH :Gbrowse!<CR>
 vnoremap <Leader>gb :Gblame<CR>
+vnoremap <Leader>gl :Glog<CR>
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " "
 
 " ag.vim "
 nnoremap <Leader>f<Leader> :Ag 
-nnoremap <Leader>fk :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap <Leader>fk :let @/ = "<C-R><C-W>"<CR>:Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+" "
+
+" quickfix navigation "
+nnoremap <Leader>fn :cn<CR>
+nnoremap <Leader>fp :cp<CR>
+" "
+
+" fast change vimrc "
+nnoremap <Leader>vl :source ~/.vimrc<CR>
+" edit vimrc "
+nnoremap <Leader>ve :e ~/.vimrc<CR>
+" close vimrc and return to file "
+
+" TODO
+
+" vim plugin
+" --save vimrc
+" --source vimrc
+" --install new plugin
+" --source vimrc
+nnoremap <Leader>vp :w<CR>
+" "
 
 " From http://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
@@ -427,7 +455,6 @@ endif
 " nnoremap <Leader>fb :FufBuffer<CR>
 " nnoremap <Leader>fm :FufMruFile<CR>
 " "
-
 
 " Command to restore cursor position "
 if has("autocmd")
