@@ -23,6 +23,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vividchalk'
 
 Plugin 'tpope/vim-markdown'
@@ -31,6 +32,10 @@ Plugin 'jtratner/vim-flavored-markdown'
 
 Plugin 'tommcdo/vim-exchange'
 
+Plugin 'kana/vim-textobj-user.git'
+" depends on kana/vim-textobj-user.git
+Plugin 'textobj-rubyblock'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -38,11 +43,9 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'guns/vim-clojure-static'
 Plugin 'slim-template/vim-slim'
 Plugin 'hwartig/vim-seeing-is-believing'
-Plugin 'wincent/Command-T'
 Plugin 'arsenerei/vim-ragel'
 Plugin 'leafo/moonscript-vim'
 Plugin 'bling/vim-airline'
-" Plugin 'Valloric/YouCompleteMe'
 " LiveScript "
 Plugin 'gkz/vim-ls'
 " Fish! "
@@ -53,6 +56,7 @@ Plugin 'typedclojure/vim-typedclojure'
 
 " vim-scripts repos
 " Plugin 'rcodetools.vim'
+Plugin 'tabular'
 Plugin 'Puppet-Syntax-Highlighting'
 Plugin 'vim-coffee-script'
 Plugin 'L9'
@@ -60,7 +64,7 @@ Plugin 'L9'
 " Plugin 'FuzzyFinder'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-stylus'
-" Plugin 'Command-T'
+" Plugin 'Command-T' " CAREFUL! CAN CRASH VIM IF NOT SET UP PROPERLY
 Plugin 'EasyMotion'
 " Plugin 'Markdown' "
 Plugin 'VimClojure'
@@ -68,12 +72,18 @@ Plugin 'Textile-for-VIM'
 Plugin 'Mercury-compiler-support'
 Plugin 'go.vim'
 Plugin 'jnwhiteh/vim-golang'
-Plugin 'Blackrush/vim-gocode'
+" Plugin 'Blackrush/vim-gocode'
+Plugin 'fatih/vim-go'
+Plugin 'Shougo/neosnippet.vim'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Shougo/neocomplete.vim'
+
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 
 " Plugin 'vimsh'
 " Plugin 'slimv.vim'
+Plugin 'vim-ruby/vim-ruby'
 " Plugin 'ruby.vim'
 Plugin 'danchoi/ri.vim'
 " Plugin 'repmo.vim' " This one gets rid of my j and k mappings :(
@@ -163,6 +173,25 @@ set nrformats=hex,alpha
 set nu
 syntax on
 
+" FIXME "
+" Some commands from Casey "
+set backup
+set noswapfile
+set undodir=~/.vim/tmp/undo/
+set backupdir=~/.vim/tmp/backup/
+set directory=~/.vim/tmp/swap
+
+" Cursor cross-hairs "
+augroup Cursorline
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+    au WinLeave * setlocal nocursorline
+    au WinLeave * setlocal nocursorcolumn
+augroup END
+" "
+" END Some commands from Casey "
+
 " Set interactive shell commands (allows aliases) "
 " This also ends up making mappings that include shell
 " commands force vim to run as a background process
@@ -222,7 +251,9 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vender/gems/*
 " set wildignorecase
 
-set list listchars=tab:\ \ ,trail:·
+" set list listchars=tab:¬·,trail:·
+set list listchars=tab:¬·,trail:·,extends:→,precedes:←,conceal:✗,nbsp:┄
+" set list listchars=tab:¬·,trail:·,extends:…,precedes:…,conceal:×,nbsp:┄
 " "
 
 " Language-specific auto-complete from syntax highlighting files "
@@ -284,6 +315,10 @@ nnoremap <Leader>< <
 " Tab navigation shortcuts "
 nnoremap <Leader>t gt
 nnoremap <Leader>T gT
+" "
+
+" Toggle paste mode "
+nnoremap <Leader>P :set paste!
 " "
 
 " Quick-toggle fold "
@@ -407,11 +442,14 @@ vnoremap <Leader>gH :Gbrowse!<CR>
 vnoremap <Leader>gb :Gblame<CR>
 vnoremap <Leader>gl :Glog<CR>
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" Keep vim status line on by default "
+set laststatus=2
 " "
 
 " ag.vim "
 nnoremap <Leader>f<Leader> :Ag 
 nnoremap <Leader>fk :let @/ = "<C-R><C-W>"<CR>:Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+let g:agprg="ag --column --ignore log --ignore tags --ignore local.tags --ignore .min.js --ignore docs --ignore doc --smart-case --skip-vcs-ignores --silent"
 " "
 
 " quickfix navigation "

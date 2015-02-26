@@ -27,3 +27,6 @@ let g:tagbar_type_go = {
 \ }
 
 set shiftwidth=4
+set tabstop=4
+nnoremap gi :GoInfo
+nnoremap <C-]> :GoDef

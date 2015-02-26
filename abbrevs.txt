@@ -156,3 +156,5 @@ smtms sometimes
 Smhw Somehow
 smhw somehow
 addl additional
+wdt wouldn't
+  <Plug>DiscretionaryEnd
