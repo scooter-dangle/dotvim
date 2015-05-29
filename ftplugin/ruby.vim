@@ -1,3 +1,4 @@
+NeoCompleteLock
 set shiftwidth=4
 set nowrap
 set omnifunc=rubycomplete#Complete
@@ -12,3 +13,7 @@ xmap <buffer> <Leader>gm <Plug>(xmpfilter-mark)
 xmap <buffer> <Leader>GM <Plug>(xmpfilter-run)
 xmap <buffer> <Leader>R <Plug>(xmpfilter-mark)<Plug>(xmpfilter-run)
 runtime macros/matchit.vim
+
+" yardoc formatting
+highlight link yardGenericTag rubyInstanceVariable
+highlight link yardReturn rubyControl

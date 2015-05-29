@@ -18,7 +18,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Vim-Rspec'
 
 Plugin 'tpope/vim-fugitive'
+" Addon to 'tpope/vim-fugitive' "
+Plugin 'gregsexton/gitv'
+
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-bundler'
@@ -36,6 +40,8 @@ Plugin 'kana/vim-textobj-user.git'
 " depends on kana/vim-textobj-user.git
 Plugin 'textobj-rubyblock'
 
+Plugin 'noprompt/vim-yardoc'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -48,16 +54,28 @@ Plugin 'leafo/moonscript-vim'
 Plugin 'bling/vim-airline'
 " LiveScript "
 Plugin 'gkz/vim-ls'
+
+" Io "
+Plugin 'andreimaxim/vim-io'
+
+" Elm
+Plugin 'lambdatoast/elm.vim'
+
 " Fish! "
 Plugin 'dag/vim-fish'
 Plugin 'kana/vim-vspec'
 
 Plugin 'typedclojure/vim-typedclojure'
 
+Plugin 'terryma/vim-multiple-cursors'
+
+Plugin 'adimit/prolog.vim'
+
 " vim-scripts repos
 " Plugin 'rcodetools.vim'
 Plugin 'tabular'
 Plugin 'Puppet-Syntax-Highlighting'
+Plugin 'SyntaxRange'
 Plugin 'vim-coffee-script'
 Plugin 'L9'
 " Am liking ctrlp such much better than FuzzyFinder
@@ -76,7 +94,7 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neosnippet.vim'
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplete.vim'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
@@ -117,6 +135,8 @@ Plugin 'tomtom/tlib_vim'
 " optional for snipMate
 Plugin 'honza/vim-snippets'
 Plugin 'dbext.vim'
+Plugin 'sqlcomplete.vim'
+Plugin 'exu/pgsql.vim'
 
 Plugin 'php.vim'
 Plugin 'phpcomplete.vim'
@@ -127,6 +147,8 @@ Plugin 'matchit.zip'
 Plugin 'burnttoast256'
 Plugin 'desert-warm-256'
 Plugin 'twilight256.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'devbox-dark-256'
 Plugin '256-grayvim'
 Plugin 'mrkn256.vim'
@@ -206,8 +228,11 @@ set hidden
 " Color scheme "
 " colorscheme desert256
 " colorscheme wombat256mod
-colorscheme twilight256
+" colorscheme twilight256
+" colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow-Night
 " colorscheme delek
+" colorscheme base16-tomorrow
 " "
 
 " Shorthand system "
@@ -237,6 +262,11 @@ source ~/.vim/additionalMappings.vim
 
 " Show highlighting groups for current word "
 source ~/.vim/syntaxHighlightInspect.vim
+" "
+
+" neocomplete "
+let g:neocomplete#enable_at_startup = 0
+nnoremap <Leader>tn :NeoCompleteToggle<CR>
 " "
 
 " syntastic options "
@@ -297,7 +327,7 @@ let mapleader = ' '
 nnoremap <Leader>- s
 nnoremap <Leader>| v
 " nnoremap <Leader>- -
-nnoremap <Leader>= +
+" nnoremap <Leader>= +
 nnoremap <Leader>_ _
 " nnoremap <Leader>| |
 nnoremap <Leader>+ =
@@ -313,8 +343,8 @@ nnoremap <Leader>< <
 " "
 
 " Tab navigation shortcuts "
-nnoremap <Leader>t gt
-nnoremap <Leader>T gT
+" nnoremap <Leader>t gt
+" nnoremap <Leader>T gT
 " "
 
 " Toggle paste mode "
@@ -400,19 +430,20 @@ inoremap  
 " of toggling between relative and absolute from "
 " TODO improve...currently is initially disabled
 " jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/ "
-set number
+" set number
 
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set number
-    else
-        set relativenumber
-    endif
-endfunc
+" function! NumberToggle()
+"     if(&relativenumber == 1)
+"         set number
+"     else
+"         set relativenumber
+"     endif
+" endfunc
 
-au FocusLost * :set number<CR>
-au FocusGained * :set relativenumber<CR>
-nnoremap <Leader>a :call NumberToggle()<CR>
+" au FocusLost * :set number<CR>
+" au FocusGained * :set relativenumber<CR>
+" nnoremap <Leader>a :call NumberToggle()<CR>
+nnoremap <Leader>a :set relativenumber!<CR>
 " "
 
 " Skinny indent guides "
@@ -449,7 +480,7 @@ set laststatus=2
 " ag.vim "
 nnoremap <Leader>f<Leader> :Ag 
 nnoremap <Leader>fk :let @/ = "<C-R><C-W>"<CR>:Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-let g:agprg="ag --column --ignore log --ignore tags --ignore local.tags --ignore .min.js --ignore docs --ignore doc --smart-case --skip-vcs-ignores --silent"
+let g:agprg="ag --column --ignore log --ignore tags --ignore local.tags --ignore .min.js --ignore docs --ignore '*.dump' --ignore doc --smart-case --skip-vcs-ignores --silent"
 " "
 
 " quickfix navigation "
@@ -507,9 +538,17 @@ if has("autocmd")
 endif
 " "
 
-" Re-source .vimrc "
-nnoremap <Leader>SS :source ~/.vimrc<CR>
+" Show syntax highlighting groups for word under cursor "
+" (from VimCasts)
+nmap <Leader>sg :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 " "
+
 
 " For vim-commentary "
 autocmd FileType ruby set commentstring=#\ %s
@@ -529,3 +568,30 @@ augroup markdown
   au!
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+" For prose formatting with par "
+vnoremap <Leader>= !par
+nnoremap <Leader>== V!par
+" TODO: Set up the above command to accept a motion.
+
+" DB Ext
+
+" Profiles
+" PostgreSQL
+let g:dbext_default_profile_PGSQL_dev           = 'type=pgsql:dbname=distil_development:host=localhost:user=scott:passwd='
+let g:dbext_default_profile_PGSQL_dev_reporting = 'type=pgsql:dbname=distil_reporting:host=localhost:user=scott:passwd='
+let g:dbext_default_profile_PGSQL_dev_summary   = 'type=pgsql:dbname=distil_summary:host=localhost:user=scott:passwd='
+
+let g:dbext_default_profile                  = 'PGSQL_dev'
+
+nnoremap <unique> <Leader>see <Plug>DBExecSQLUnderCursor
+nnoremap <unique> <Leader>spp <Plug>DBPromptForBufferParameters
+
+" autocmd BufRead */MyProjectDir/* DBSetOption variable_def_regex=\(\w\|'\)\@<!?\(\w\|'\)\@<!,\zs\(@\|:\a\|\$\)\w\+\>\|#{\(\w\|\[.\-\]\)\+}
+autocmd BufRead *.sql DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v(:)@1<!:\w+>
+autocmd BufRead *.{ba,}sh DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v(:)@1<!:\w+>,\v\$\{\w+\}
+autocmd BufRead *.{rake,rb} DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v#\{(\w|[.\-])+},\v(:)@1<!:\w+>
+" autocmd BufRead *.{ba,}sh DBSetOption variable_def_regex=
+" autocmd BufRead DBSetOption variable_def_regex=,#{\ \?\(\w\|\[.\-\]\)\+\ \?}
+" DBSetOption variable_def_regex=,#{\ \?\(\w\|\[.\-\]\)\+\ \?}
+"
