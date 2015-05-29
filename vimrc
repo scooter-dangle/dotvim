@@ -563,7 +563,14 @@ augroup markdown
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-" For prose formatting with par "
+""
+" For prose formatting with par...helpful for re-flowing comments and markdown
+" text.
+"
+" Note: In order for this to work, you'll need to both
+"   1) install `par`
+"   2) export PARINIT as 'rTbgqR B=.,?_A_a Q=_s>|' from your shell's
+"   profile/init file.
 vnoremap <Leader>= !par
 nnoremap <Leader>== V!par
 " TODO: Set up the above command to accept a motion.
