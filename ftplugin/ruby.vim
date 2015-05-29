@@ -2,6 +2,12 @@ NeoCompleteLock
 set shiftwidth=4
 set nowrap
 set omnifunc=rubycomplete#Complete
+
+" Allow Ruby functions ending with ? or ! to be found as tags by Vim (ctags) "
+set iskeyword+=?
+set iskeyword+=!
+" "
+
 nnoremap <buffer> <Leader>r :w<CR>:!ruby %<CR>
 nnoremap <buffer> <Leader>T :w<CR>:!rspec --color %<CR>
 inoremap <buffer> <C-J><C-J> <Space>=><Space>
