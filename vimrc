@@ -5,6 +5,7 @@ endif
 set nocompatible
 filetype off " required!
 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -42,11 +43,26 @@ Plugin 'textobj-rubyblock'
 
 Plugin 'noprompt/vim-yardoc'
 
+Plugin 'cespare/vim-toml'
+Plugin 'rust-lang/rust.vim'
+" Used by rust-lang/rust.vim "
+Plugin 'mattn/webapi-vim'
+
+Plugin 'racer-rust/vim-racer'
+
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 't9md/vim-ruby-xmpfilter'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
 Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'derekwyatt/vim-scala'
 Plugin 'slim-template/vim-slim'
 Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'arsenerei/vim-ragel'
@@ -56,10 +72,16 @@ Plugin 'bling/vim-airline'
 Plugin 'gkz/vim-ls'
 
 " Io "
-Plugin 'andreimaxim/vim-io'
+" Plugin 'andreimaxim/vim-io'
+
+" Factor "
+" Plugin 'scooter-dangle/vim-factor'
 
 " Elm
 Plugin 'lambdatoast/elm.vim'
+
+" Idris "
+Plugin 'idris-hackers/idris-vim'
 
 " Fish! "
 Plugin 'dag/vim-fish'
@@ -70,6 +92,12 @@ Plugin 'typedclojure/vim-typedclojure'
 Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'adimit/prolog.vim'
+
+Plugin 'ekalinin/Dockerfile.vim'
+
+Plugin 'LnL7/vim-nix'
+
+" Plugin 'csv.vim'
 
 " vim-scripts repos
 " Plugin 'rcodetools.vim'
@@ -91,10 +119,12 @@ Plugin 'Mercury-compiler-support'
 Plugin 'go.vim'
 Plugin 'jnwhiteh/vim-golang'
 " Plugin 'Blackrush/vim-gocode'
-Plugin 'fatih/vim-go'
-Plugin 'Shougo/neosnippet.vim'
+" Plugin 'fatih/vim-go'
+" Plugin 'Shougo/neosnippet.vim'
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
+if has("lua")
+    Plugin 'Shougo/neocomplete.vim'
+endif
 
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
@@ -105,13 +135,9 @@ Plugin 'vim-ruby/vim-ruby'
 " Plugin 'ruby.vim'
 Plugin 'danchoi/ri.vim'
 " Plugin 'repmo.vim' " This one gets rid of my j and k mappings :(
-if exists("bundle_project_dot_vim")
-    " This plugin is for C projects...not general use.
-    " Plugin 'project.vim'
-endif
 Plugin 'Coq-indent'
 Plugin 'coq-syntax'
-Plugin 'rails.vim'
+" Plugin 'rails.vim'
 Plugin 'taglist.vim'
 Plugin 'rake.vim'
 Plugin 'tslime.vim'
@@ -124,7 +150,9 @@ Plugin 'ctags.vim'
 Plugin 'AutoTag'
 
 " Snippet engine "
-Plugin 'SirVer/ultisnips'
+if has("lua")
+    Plugin 'SirVer/ultisnips'
+endif
 " snippets for ultisnips engine "
 " Plugin 'honza/vim-snippets'
 
@@ -136,7 +164,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'dbext.vim'
 Plugin 'sqlcomplete.vim'
-Plugin 'exu/pgsql.vim'
+" Plugin 'exu/pgsql.vim'
 
 Plugin 'php.vim'
 Plugin 'phpcomplete.vim'
@@ -178,14 +206,50 @@ Plugin 'coffee.vim'
 
 Plugin 'rking/ag.vim'
 
+Plugin 'pelodelfuego/vim-swoop'
+
+Plugin 'unblevable/quick-scope'
+
+Plugin 'dermusikman/sonicpi.vim'
+if !exists("g:sonicpi_enabled")
+    let g:sonicpi_enabled = 0
+endif
+
 call vundle#end()         " required
 filetype plugin indent on " required!
 
 let mapleader = ' '
 
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+let g:swoopAutoInsertMode = 0
+
+" Searching and things "
 set incsearch
 set hlsearch
-nnoremap <Leader>/ :noh<CR>
+nnoremap <Leader>/<ESC> :noh<CR>
+" ag.vim "
+nnoremap <Leader>// :Ag '/'<CR>
+nnoremap <Leader>/<Leader> :Ag 
+nnoremap <Leader>/k :let @/ = "<C-R><C-W>"<CR>:Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+let g:agprg="ag --column --ignore log --ignore tags --ignore local.tags --ignore .min.js --ignore docs --ignore '*.dump' --ignore doc --smart-case --skip-vcs-ignores --silent"
+" "
+nnoremap <Leader>/s :%s///
+vnoremap <Leader>/s :s///
+nnoremap <Leader>/d :g///d
+vnoremap <Leader>/d :///d
+nnoremap <Leader>/n :g///normal 
+vnoremap <Leader>/n :///normal 
+" "
+
+if has("nvim")
+    nnoremap <Leader>ff :terminal fish<CR>
+end
+
 set shortmess=nIat
 set rulerformat=%15(%c\ %l\ %p%%%)
 set autoindent
@@ -214,12 +278,40 @@ augroup END
 " "
 " END Some commands from Casey "
 
+" tslime mapping "
+" (<C-C><C-C> no longer works for some reason :(  ) "
+nnoremap <Leader>rr vip"ry:call Send_to_Tmux(@r)<CR>
+vnoremap <Leader>rr "ry:call Send_to_Tmux(@r)<CR>
+" "
+
 " Set interactive shell commands (allows aliases) "
 " This also ends up making mappings that include shell
 " commands force vim to run as a background process
 " or something. Blerg.
 " set shellcmdflag=-ic
 " "
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
 
 " Fewer warnings when switching changed buffers "
 set hidden
@@ -249,7 +341,8 @@ source ~/.vim/abbrevlist-devel.vim
 " "
 
 " Additional mappings "
-source ~/.vim/additionalMappings.vim
+" Can just rely on vim digraphs for this.
+" source ~/.vim/additionalMappings.vim
 " "
 
 " Test extending matchit for ruby "
@@ -260,26 +353,31 @@ source ~/.vim/additionalMappings.vim
 " source ~/.vim/1470884/.vimrc
 " "
 
+" Extra digraphs "
+" ⊕ XOR
+digraphs XO 8853
+" "
+
 " Show highlighting groups for current word "
 source ~/.vim/syntaxHighlightInspect.vim
 " "
 
 " neocomplete "
-let g:neocomplete#enable_at_startup = 0
+let g:neocomplete#enable_at_startup = 1
 nnoremap <Leader>tn :NeoCompleteToggle<CR>
 " "
 
 " syntastic options "
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['ruby', 'php', 'go', 'clojure', 'erlang'],
-                           \ 'passive_filetypes': ['puppet'] }
+                           \ 'active_filetypes': ['ruby', 'php', 'clojure', 'erlang'],
+                           \ 'passive_filetypes': ['puppet', 'go'] }
 
 
 " Some stuff from cupakromer's vimrc "
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vender/gems/*
-" set wildignorecase
+set wildignorecase
 
 " set list listchars=tab:¬·,trail:·
 set list listchars=tab:¬·,trail:·,extends:→,precedes:←,conceal:✗,nbsp:┄
@@ -335,6 +433,12 @@ nnoremap <Leader>o o
 nnoremap <Leader>> >
 nnoremap <Leader>< <
 " "
+
+" Conflicts with <Leader>l above
+let g:swoopUseDefaultKeyMap = 0
+
+nnoremap <Leader>ml :call SwoopMulti()<CR>
+" nnoremap <Leader>ml :call SwoopMultiSelection()<CR>
 
 " Tab navigation shortcuts "
 " nnoremap <Leader>t gt
@@ -439,6 +543,9 @@ inoremap  
 " nnoremap <Leader>a :call NumberToggle()<CR>
 nnoremap <Leader>a :set relativenumber!<CR>
 " "
+set relativenumber
+
+set lazyredraw
 
 " Skinny indent guides "
 " Plugin 'nathanaelkane/vim-indent-guides' "
@@ -455,6 +562,7 @@ nnoremap <Leader>A :set wrap!<CR>:set list!<CR>
 
 " Mac Copy "
 vnoremap <Leader>y :w !pbcopy<CR>
+nnoremap <Leader>yy vip:w !pbcopy<CR>
 
 " Fugitive "
 nnoremap <Leader>gg :Gstatus<CR>
@@ -471,10 +579,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 " "
 
-" ag.vim "
-nnoremap <Leader>f<Leader> :Ag 
-nnoremap <Leader>fk :let @/ = "<C-R><C-W>"<CR>:Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-let g:agprg="ag --column --ignore log --ignore tags --ignore local.tags --ignore .min.js --ignore docs --ignore '*.dump' --ignore doc --smart-case --skip-vcs-ignores --silent"
+" rsi "
+let g:rsi_no_meta = 1
 " "
 
 " quickfix navigation "
@@ -509,6 +615,15 @@ if executable('ag')
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
+endif
+" "
+
+" sonic pi "
+if exists("g:sonicpi_enabled") && g:sonicpi_enabled == 1
+    " vunmap <Leader>r
+    vnoremap <Leader>r :<Home>silent<End>w !sonic_pi<CR>
+    " nunmap <Leader>se
+    nnoremap <Leader>se vip:<Home>silent<End>w !sonic_pi<CR>
 endif
 " "
 
@@ -577,22 +692,58 @@ nnoremap <Leader>== V!par
 
 " DB Ext
 
+" let g:dbext_default_PGSQL_pgpass = expand('$HOME/.pgpass')
+" let g:dbext_default_display_cmd_line = 1
+let g:dbext_default_window_use_horiz = 0
+let g:dbext_default_window_width = 160
 " Profiles
 " PostgreSQL
 let g:dbext_default_profile_PGSQL_dev           = 'type=pgsql:dbname=distil_development:host=localhost:user=scott:passwd='
 let g:dbext_default_profile_PGSQL_dev_reporting = 'type=pgsql:dbname=distil_reporting:host=localhost:user=scott:passwd='
 let g:dbext_default_profile_PGSQL_dev_summary   = 'type=pgsql:dbname=distil_summary:host=localhost:user=scott:passwd='
 
-let g:dbext_default_profile                  = 'PGSQL_dev'
+if !exists("g:dbext_default_profile")
+    let g:dbext_default_profile                 = 'PGSQL_dev'
+endif
 
 nnoremap <unique> <Leader>see <Plug>DBExecSQLUnderCursor
 nnoremap <unique> <Leader>spp <Plug>DBPromptForBufferParameters
 
+""
+" TODO—tweak these settings so that only variables matching `:var_name`
+" are recognized...by default dbext prompts for variable interpolation
+" when query contains typecasting such as
+"   SELECT 3::text;
+"
+" Some of the following settings totally remove recognition of
+" colon-prefixed variables, but that's not ideal, since it's a nice
+" syntax to use.
+"
 " autocmd BufRead */MyProjectDir/* DBSetOption variable_def_regex=\(\w\|'\)\@<!?\(\w\|'\)\@<!,\zs\(@\|:\a\|\$\)\w\+\>\|#{\(\w\|\[.\-\]\)\+}
-autocmd BufRead *.sql DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v(:)@1<!:\w+>
+" autocmd BufRead *.{pl,}sql DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v(:)@1<!:\w+>
+autocmd BufRead *.{pl,}sql DBSetOption variable_def=?WQ,@wq,$wq
+autocmd BufRead *.{pl,}sql DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>
 autocmd BufRead *.{ba,}sh DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v(:)@1<!:\w+>,\v\$\{\w+\}
 autocmd BufRead *.{rake,rb} DBSetOption variable_def_regex=\v(\w|')@<!\?(\w|')@<!,\v\zs\@\w+>,\v#\{(\w|[.\-])+},\v(:)@1<!:\w+>
 " autocmd BufRead *.{ba,}sh DBSetOption variable_def_regex=
 " autocmd BufRead DBSetOption variable_def_regex=,#{\ \?\(\w\|\[.\-\]\)\+\ \?}
 " DBSetOption variable_def_regex=,#{\ \?\(\w\|\[.\-\]\)\+\ \?}
-"
+
+
+" unblevable/quick-scope "
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Trigger a highlight only when pressing f and F.
+" let g:qs_highlight_on_keys = ['f', 'F']
+
+"   custom colors
+" let g:qs_first_occurrence_highlight_color = '#afff5f' " gui vim
+" let g:qs_first_occurrence_highlight_color = 155       " terminal vim
+
+" let g:qs_second_occurrence_highlight_color = '#5fffff'  " gui vim
+" let g:qs_second_occurrence_highlight_color = 81         " terminal vim
+
+
+" It no work! :(
+" AddTabularPattern comma_words /\v[^ ,)]+,/l1

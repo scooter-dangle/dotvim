@@ -1,3 +1,5 @@
+set shiftwidth=4
+
 " Vim ftplugin file
 " Language:    Erlang
 " Maintainer:  Oscar Hellström <oscar@oscarh.net>

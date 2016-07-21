@@ -1,5 +1,8 @@
-NeoCompleteLock
-set shiftwidth=4
+if exists("g:neocomplete")
+  NeoCompleteLock
+endif
+
+set shiftwidth=2
 set nowrap
 set omnifunc=rubycomplete#Complete
 
@@ -8,7 +11,7 @@ set iskeyword+=?
 set iskeyword+=!
 " "
 
-nnoremap <buffer> <Leader>r :w<CR>:!ruby %<CR>
+nnoremap <buffer> <Leader>r<Leader> :w !ruby %<CR>
 nnoremap <buffer> <Leader>T :w<CR>:!rspec --color %<CR>
 inoremap <buffer> <C-J><C-J> <Space>=><Space>
 " xmpfilter
